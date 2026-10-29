@@ -7,7 +7,11 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app needs access to your camera to capture photos for your notes.",
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photo library to select photos for your notes."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -16,8 +20,22 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "permissions": [
+        "android.permission.CAMERA",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
     },
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app needs access to your photos so you can select and attach images to your notes.",
+          "cameraPermission": "The app needs access to your camera so you can capture photos for your notes."
+        }
+      ]
+    ],
     "web": {
       "favicon": "./assets/favicon.png"
     }
